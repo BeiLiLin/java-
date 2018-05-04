@@ -1,0 +1,7 @@
+ Java程序的种类有：
+
+（a）内嵌于Web文件中，由浏览器来观看的_Applet
+
+（b）可独立运行的 Application
+
+（c）服务器端的 Servlets 

@@ -1,0 +1,4 @@
+1.JAVA中包的概念不明白。本程序段是之前在Eclipse中编辑测试好的，直接copy过来使用，使得程序段中留下多余的包的声明，Hello类中把它放到了chapter1包下，而环境变量classpath设定了当前目录，当前的目录是.....\src\chapter1，执行器会在当前的目录下找chapter1这个包，而实际上chapter1下并没有。所以找不到类Hello。
+解决方法：
+把package语句去掉；
+2.环境变量问题

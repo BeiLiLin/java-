@@ -1,0 +1,7 @@
+
+
+    301 Move Permanently 资源已经被永久改变了位置
+    304 Not Modified 自上次未修改
+    401 Unauthorized 未授权
+    404 Not Found error 
+

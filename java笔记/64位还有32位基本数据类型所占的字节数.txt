@@ -1,0 +1,22 @@
+64位：
+8字节的:char*(即指针变量)、double、long、long long、unsigned long
+4字节的：int、unsigned int、float、
+2字节：short int
+1字节：char
+
+
+
+32位：
+8字节：double、long long、
+4字节的：char*（即指针变量）、int、unsigned int、float、long、unsigned long
+2字节：short int
+1字节：char
+
+
+java编译器:
+1字节：Byte 
+2字节：Short
+4 字节：Int、Float
+8字节：Long:、Double
+2字节:Character
+
