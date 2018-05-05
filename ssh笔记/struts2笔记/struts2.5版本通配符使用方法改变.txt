@@ -1,0 +1,10 @@
+<package name="user" namespace="/user" extends="struts-default">
+        <action name="User_*" class="action.LoginAction" method="{1}">
+            <result name="success">/success.jsp</result>
+            <result name="error">/error.jsp</result>
+            <allowed-methods>login</allowed-methods>
+        </action>
+    </package>
+需要加入匹配的方法(方法名之间用逗号隔开。)
+ <allowed-methods>method1,method2,.......</allowed-methods>
+2.3版本前不需要配置

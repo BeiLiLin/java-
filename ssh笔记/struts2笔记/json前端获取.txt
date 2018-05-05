@@ -1,0 +1,5 @@
+  var jsondata=JSON.stringify(data);//将json对象转换为json字符串
+
+var obj=$.parseJSON(jsondata);//将json字符串转换为对象				
+
+var result=obj.result;//打点调用对象中的属性

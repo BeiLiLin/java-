@@ -1,0 +1,8 @@
+在 CSS 定义中：
+1. a:hover 必须位于 a:link 和 a:visited 之后，这样才能生效！
+2. a:active 必须位于 a:hover 之后，这 样才能生效！
+于是得四者顺序：
+a:link----->a:visited------>a:hover-------->a:active。 
+可以这样记：LoVe HAte（爱恨） [注意大写字母]
+
+当有分页功能的时候，如何上一页或者下一页的页面数

@@ -1,0 +1,24 @@
+<s:iterator value="#request.userList">
+ 
+<s:a href="userAction!addUser.action">添加</s:a> 
+ //第一种方式,在标签内使用标签时用%
+           
+ <s:a href="userAction!loadUser.action?user.id=%{id}">编辑</s:a> |  	  
+   //第二种方式:使用<s:url>标签解决  
+
+ <s:url id="idUrl" action="userAction!delUser.action">
+	
+ <s:param name="user.id" value="%{id}"></s:param>
+
+</s:url> 
+	
+<s:a href="%{idUrl}">删除</s:a>
+   
+ //第三种:直接加入
+
+<a href="<s:url action="userAction!delUser.action">
+                    <s:param name="user.id" value="id"/>
+</s:url>">删除2
+ </a>
+
+在s:url中添加id属性，在s:a中引用的href="%{id}"

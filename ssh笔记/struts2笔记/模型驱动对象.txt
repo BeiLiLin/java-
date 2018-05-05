@@ -1,0 +1,9 @@
+implements ModelDriven<Users>
+//模型驱动使用对象
+private Users user = new Users();			
+
+@Override
+public Users getModel()
+{
+ return user;
+ }

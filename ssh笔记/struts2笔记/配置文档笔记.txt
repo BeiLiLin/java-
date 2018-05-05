@@ -1,0 +1,1 @@
+1.设置action中的result 里的type="chain" 可直接跳转到另一个action

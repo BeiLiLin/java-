@@ -1,0 +1,7 @@
+//实体类中一个set方法
+public void setCost(double cost)
+{
+	this.cost = cost;
+}
+1.根据实体类中set方法的传入值决定对应的属性（double cost）
+2.根据set方法后面第一个大小字母查找，所以jsp中iterator的value值等于Cost;
