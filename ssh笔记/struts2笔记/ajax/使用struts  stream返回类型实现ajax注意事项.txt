@@ -1,0 +1,36 @@
+struts.xml配置：
+<!-- 定义页面请求的编码类型 -->
+<constant name="struts.i18n.encoding" value="UTF-8" />
+<package name="xx"  extends="struts-default">
+<action name="login" class="action.LoginAction">
+
+<!-- result类型为stream -->
+<result type="stream">
+<!-- 指定下载文件的文件类型 -->
+<param name="contentType">text/html</param>
+<!-- 指定由getResult()方法返回输出结果的InputStream -->
+<param name="inputName">result</param>
+</result>
+
+</action>
+</package>
+action中的内容：
+//返回前段的二进制内容
+private InputStream inputStream;
+
+public InputStream getResult()
+{
+	return inputStream;
+}
+
+action的方法中存放inputStream信息：
+//用了个三目运算符
+inputStream = user.equals("crazyit.org") && pass.equals("leegang")
+
+? new ByteArrayInputStream("恭喜你，登录成功!".getBytes("UTF-8"))
+
+: new ByteArrayInputStream("对不起，用户名、密码不匹配！".getBytes("UTF-8"));
+
+/////////////////////////////////////
+inputStream=new ByteArrayInputStream("字符串内容" .getBytes("字符串编码类型"))
+/////////////////////////////////////
