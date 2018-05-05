@@ -1,0 +1,12 @@
+1.ServiceRegistry 的介绍：
+	http://planet.jboss.org/post/hibernate_orm_service_registry
+
+2.组合属性：相当于向一个持久化类包含一个类（组合属性，例如地址的组合）
+区别：	
+	hbm.xml文档：<component name="address" class="Address">
+			<property name="phone" column="POSTCODE">
+		     </component>
+3.get与load的区别：
+（1）.load只有在使用该对象才会发送sql语句，get不管你是否使用该对象，都会第一时间发送sql语句
+（2）.load返回的是一个代理对象，get返回的是持久化类的对象
+（3）.无该数据时，load返回异常，get返回null

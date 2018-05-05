@@ -1,0 +1,3 @@
+usage:read-only效率最高
+include:
+region:值随意命名，方便在ehcache.xml专门配制属性

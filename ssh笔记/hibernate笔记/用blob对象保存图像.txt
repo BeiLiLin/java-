@@ -1,0 +1,28 @@
+//写入图像
+//先获取照片文件
+	File f = new File("d:"+File.separator+"xx.jpg");
+//获取照片的输入流
+	InputStream input = new FileInputStream(f);
+//创建一个Blob对象
+Blob image = Hibernate.getLobCreator(session).createBlob(input,input.available());//（输入流，输入流的长度）
+//设置照片属性
+s.setPicture(image);
+//保存学生
+session.save(s);
+
+//读取图像
+Students s = (Students)session.get(Students.class,1);(持久类，主键)
+//获取Blob对象
+Blob image = s.getPicture(）；
+//获取照片的输入流
+InputStream input = image.getBinaryStream();
+//创建输出流
+File f = new File("d:"+File.separator+"dest.jpg");
+//获得输出流
+OutputStream output = new FileOutputStream(s);
+//创建缓冲区
+byte[] buff = new byte[input.avaliable()];
+input.read(buff);
+output.write(buff);
+input.close();
+output.close();

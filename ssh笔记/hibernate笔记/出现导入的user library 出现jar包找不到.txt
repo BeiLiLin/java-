@@ -1,0 +1,1 @@
+小伙伴们是不是总是遇到500这个错误勒，明明已经手动加载了user library,却老是显示各种包找不到的错误，大多人会选择将jar包从新复制到WEB-INF下的lib里面，这里有一个好的解决办法，打开项目的properties,找到Deployment Assembly点进去，再点击add找到Java Build path entries,找到你自己定义的包，点击Finish，就可以运行了
