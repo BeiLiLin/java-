@@ -1,0 +1,18 @@
+ <package name="default" namespace="/" extends="struts-default">
+  <!-- ÅäÖÃÀ¹½ØÆ÷ -->	
+ <interceptors>
+     <!-- ¶¨ÒåÀ¹½ØÆ÷ -->
+    <interceptor name="authority" class="interceptor.LoginInterceptor" />
+        <!-- ½¨Á¢À¹½ØÆ÷Õ» -->
+	<interceptor-stack name="myStack">
+		<interceptor-ref name="defaultStack" />
+		<interceptor-ref name="authority" />
+	</interceptor-stack>
+  </interceptors>
+  <!-- ÉèÖÃ×Ô¶¨ÒåÄ¬ÈÏÀ¹½ØÆ÷Õ» -->
+  <default-interceptor-ref  name="myStack" />	
+  <!-- È«¾Öresult -->
+  <global-results>
+	<result name="login">/users/LoginRegist.jsp</result>
+  </global-results>
+</package>
