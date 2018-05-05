@@ -1,0 +1,6 @@
+<s:property value="errors['username'][0]"></s:property>
+或者
+<s:property value="fieldErrors['username'][0]"></s:property>
+username为:
+addFieldError("username",getText("name.confirm"));
+Action中添加的错误信息key值

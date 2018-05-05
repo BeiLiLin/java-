@@ -1,0 +1,10 @@
+.errorMessage li {
+	list .style-type: none;
+}
+
+.errorMessage {
+	padding: 0;
+	color:red;
+	position: absolute;
+	left:200px;
+}
