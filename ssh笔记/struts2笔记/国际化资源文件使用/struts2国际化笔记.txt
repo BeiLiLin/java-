@@ -1,0 +1,10 @@
+1.所有的properties文件必须在cmd用native2ascii 文件名 来处理该文件
+2.所有的properties文件都应该放在对应的classes文件目录下
+3.jsp使用全局国际化资源文件,不用加<s:i18n/>父标签，直接使用<s:text name=""/>标签、<s:textfield  key=""/>标签即可。
+4.不推荐使用全局国际化资源文件管理jsp页面、action、action校验规则文件的国际化消息！
+5.全局国际化中应存放整个web都有用的信息，例如数据转化失败提示、文件上传失败等信息。
+6.易错！<s:i18n>(s:i十八n)不要写成IL8N
+7.action中国际化资源文件的加载顺序：
+	action->package->global(离action最近的优先)
+8.jsp中国际化资源文件的加载顺序：
+	jsp->global(最近的优先)
