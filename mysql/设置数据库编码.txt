@@ -1,0 +1,24 @@
+//设置所有数据库的编码
+set character_set_client = utf8;
+
+set character_set_server = utf8;
+
+set character_set_connection = utf8;
+
+set character_set_database = utf8;
+
+set character_set_results = utf8;
+
+set collation_connection = utf8_general_ci;
+
+set collation_database = utf8_general_ci;
+
+set collation_server = utf8_general_ci;
+
+show variables like 'character_set_database';//查看数据库编码格式
+
+create database <数据库名> character set utf8;//查看数据表的编码格式
+
+alter database <数据库名> character set utf8;//修改数据库编码格式
+修改一张表的编码格式：
+alter table `tablename` convert to character set utf8;  

@@ -1,0 +1,36 @@
+添加外键：
+1.
+	alter table tb_product add constraint fk_1 
+foreign key(factoryid) references tb_factory(factoryid);
+
+2.
+	alter table <表名> add constraint <外键名> foreign key<字段名> 
+REFERENCES<外表表名><字段名>;
+
+//删除外键
+1.
+	alter table tb_people drop foreign key fk_1;
+
+2.
+	alter table <表名> drop foreign key <外键名>;
+
+实例：
+CREATE TABLE `tb_active` (
+
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+
+ `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+
+ `content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+
+ `user_id` int(11) NOT NULL,
+
+ PRIMARY KEY (`id`),
+
+ KEY `user_id` (`user_id`),
+
+ KEY `user_id_2` (`user_id`),
+
+ CONSTRAINT `FK_ID` FOREIGN KEY (`user_id`) REFERENCES `tb_user` (`id`)
+
+)；

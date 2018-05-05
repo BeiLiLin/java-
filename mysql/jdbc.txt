@@ -1,0 +1,9 @@
+1.executeUpdate 的返回值总为零。返回值为-1代表更新不成功。
+用于执行 INSERT、UPDATE 或 DELETE 语句以及 SQL DDL（数据定义语言）语句，
+
+2.executeQuery  执行给定的 SQL 语句，该语句返回单个 ResultSet 对象。
+这个方法被用来执行 SELECT 语句，它几乎是使用最多的 SQL 语句。 
+
+3.方法execute：
+用于执行返回多个结果集、多个更新计数或二者组合的语句。
+因为多数程序员不会需要该高级功能
