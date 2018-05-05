@@ -1,0 +1,39 @@
+当执行到service层时，发生了如题的错误。 
+原因：
+OpenSessionInViewFilter在getSession的时候,会把获取回来的session的flush mode 
+设为FlushMode.NEVER。然后把该sessionFactory绑定到TransactionSynchronizationManager，使request的整个过程都使用同一个session，在请求过后再接除该sessionFactory的绑定，最后closeSessionIfNecessary根据该session是否已和transaction绑定来决定是否关闭session。在这个过程中，若HibernateTemplate 
+发现自当前session有不是readOnly的transaction，就会获取到FlushMode.AUTO 
+Session，使方法拥有写权限。也即是，如果有不是readOnly的transaction就可以由Flush.NEVER转为Flush.AUTO,拥有insert,update,delete操作权限，如果没有transaction，并且没有另外人为地设flush 
+model的话，则doFilter的整个过程都是Flush.NEVER。所以受transaction(声明式的事务)保护的方法有写权限，没受保护的则没有。
+
+
+
+解决方法：
+1.在配置文档加入已下部分
+<tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+                <tx:method name="create*" propagation="REQUIRED" />
+                <tx:method name="save*" propagation="REQUIRED" />
+                <tx:method name="add*" propagation="REQUIRED" />
+                <tx:method name="update*" propagation="REQUIRED" />
+                <tx:method name="remove*" propagation="REQUIRED" />
+                <tx:method name="del*" propagation="REQUIRED" />
+                <tx:method name="import*" propagation="REQUIRED" />
+                <tx:method name="*" propagation="REQUIRED"/>
+                <!--这里如果觉着麻烦只要最后一行*就可以了，因为他会扫描所有的函数的 -->
+            </tx:attributes>
+        </tx:advice>
+
+        <aop:config proxy-target-class="true">
+            <aop:pointcut id="serviceOperation" expression="execution(* com.hdu.service.impl..*(..))" />
+            <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation" />
+
+
+2.请在service层上面加上一个@Transactional
+这样service层就加入了事务列，然后在所有的dao层中的写操作加一行getSessionFactory().getCurrentSession().setFlushMode(FlushMode.AUTO);像下面这样
+
+public void doCreateUser(Student student) {
+    getSessionFactory().getCurrentSession().setFlushMode(FlushMode.AUTO);
+        this.getHibernateTemplate().save(student);         
+
+    }
